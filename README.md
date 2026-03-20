@@ -104,7 +104,7 @@ All models are trained on an 80/20 train-test split with stratification on the t
 
 ---
 
-## 🖥 App Tabs
+##  App Tabs
  
 ###  Tab 1 — Live Predict
 - Adjust 8 ad/user feature sliders
