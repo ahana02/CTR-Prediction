@@ -1,11 +1,3 @@
-# ==============================
-# CTR Prediction App — Enhanced
-# streamlit_app.py
-#
-# Run: streamlit run streamlit_app.py
-# Install: pip install streamlit scikit-learn pandas numpy matplotlib seaborn
-# ==============================
-
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -201,7 +193,7 @@ def generate_and_train(n_samples=20000, noise=0.5, random_state=42):
 # SIDEBAR
 
 with st.sidebar:
-    st.markdown("## ⚙️ Configuration")
+    st.markdown("## Configuration")
     st.markdown("---")
 
     n_samples = st.select_slider("Training Samples", [5000, 10000, 20000, 50000], value=20000)
@@ -209,15 +201,13 @@ with st.sidebar:
     model_choice = st.selectbox("Active Model", ["Random Forest", "Gradient Boosting", "Logistic Regression"])
 
     st.markdown("---")
-    st.markdown("### 🔒 Privacy")
+    st.markdown("### Privacy")
     dp_enabled = st.toggle("Differential Privacy", value=False)
     if dp_enabled:
         dp_epsilon = st.slider("ε (privacy budget)", 0.1, 10.0, 1.0, 0.1)
         st.caption("Laplace noise injected into prediction scores.")
 
-    st.markdown("---")
-    st.markdown("### 📋 About")
-    st.caption("Google Ads · Ads Insights & Measurement\nData Scientist L3/L4 · Bangalore")
+  
 
 # LOAD
 
@@ -237,7 +227,7 @@ Click-Through Rate · Ads Insights & Measurement
 </p>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4 = st.tabs(["🔮 Predict", "📊 Model Evaluation", "⚖️ Model Comparison", "📦 Batch Predict"])
+tab1, tab2, tab3, tab4 = st.tabs(["Predict", "Model Evaluation", "Model Comparison", "Batch Predict"])
 
 # TAB 1 — LIVE PREDICTION
 
@@ -247,16 +237,16 @@ with tab1:
     with col_inp:
         st.markdown("### Ad & User Features")
 
-        user_age      = st.slider("👤 User Age", 18, 65, 28)
-        device        = st.selectbox("📱 Device", ['mobile', 'desktop', 'tablet'])
-        ad_category   = st.selectbox("🏷 Ad Category", ['tech', 'fashion', 'sports', 'finance', 'travel'])
-        time_of_day   = st.selectbox("🕐 Time of Day", ['morning', 'afternoon', 'evening', 'night'])
-        user_interest = st.selectbox("🎯 User Interest Level", ['low', 'medium', 'high'])
-        ad_quality    = st.slider("✨ Ad Quality Score", 0.0, 1.0, 0.65, 0.01)
-        bid_amount    = st.slider("💰 Bid Amount ($)", 0.1, 20.0, 2.5, 0.1)
-        historical_ctr = st.slider("📈 Historical CTR (%)", 0.0, 30.0, 3.5, 0.1) / 100
+        user_age      = st.slider("User Age", 18, 65, 28)
+        device        = st.selectbox("Device", ['mobile', 'desktop', 'tablet'])
+        ad_category   = st.selectbox("Ad Category", ['tech', 'fashion', 'sports', 'finance', 'travel'])
+        time_of_day   = st.selectbox("Time of Day", ['morning', 'afternoon', 'evening', 'night'])
+        user_interest = st.selectbox("User Interest Level", ['low', 'medium', 'high'])
+        ad_quality    = st.slider("Ad Quality Score", 0.0, 1.0, 0.65, 0.01)
+        bid_amount    = st.slider("Bid Amount ($)", 0.1, 20.0, 2.5, 0.1)
+        historical_ctr = st.slider("Historical CTR (%)", 0.0, 30.0, 3.5, 0.1) / 100
 
-        predict_btn = st.button("▶ PREDICT CTR PROBABILITY")
+        predict_btn = st.button("PREDICT CTR PROBABILITY")
 
     with col_out:
         st.markdown("### Prediction Output")
@@ -413,7 +403,7 @@ with tab2:
         plt.tight_layout(); st.pyplot(fig); plt.close()
 
     # CTR distribution by feature
-    st.markdown("#### 📊 CTR by Feature (training data)")
+    st.markdown("#### CTR by Feature (training data)")
     cat_feature = st.selectbox("Select feature to analyze", ['device', 'ad_category', 'time_of_day', 'user_interests'])
     plot_df = full_df.copy()
 
@@ -527,7 +517,7 @@ with tab4:
             batch_df['predicted_ctr'] = probs
             batch_df['click_verdict'] = pd.cut(probs, bins=[0, 0.05, 0.10, 1.0],
                                                 labels=['Low', 'Medium', 'High'])
-            st.success(f"✅ Predictions complete for {len(batch_df):,} rows.")
+            st.success(f"Predictions complete for {len(batch_df):,} rows.")
             st.dataframe(batch_df.head(50), use_container_width=True)
 
             # Distribution of predicted CTR

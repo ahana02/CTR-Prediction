@@ -105,31 +105,37 @@ All models are trained on an 80/20 train-test split with stratification on the t
 ---
 
 ## 🖥 App Tabs
-
+ 
 ### 🔮 Tab 1 — Live Predict
 - Adjust 8 ad/user feature sliders
 - Click **PREDICT CTR PROBABILITY** to get an instant prediction
 - View predicted probability, verdict (Low / Medium / High), and feature importance chart
-
+ 
+![Tab 1 - Live Predict](assets/tab1_predict.png)
+ 
 ### 📊 Tab 2 — Model Evaluation
 - Full evaluation dashboard for the selected model
 - Metrics: AUC-ROC, Average Precision, Log Loss, Brier Score, Accuracy
 - Plots: ROC Curve, Precision-Recall Curve, Confusion Matrix, Calibration Curve
 - CTR breakdown by categorical feature (device, category, time, interest)
-
+ 
+![Tab 2 - Model Evaluation](assets/tab2_evaluation.png)
+ 
 ### ⚖️ Tab 3 — Model Comparison
 - Side-by-side metric table for all 3 models
 - Overlaid ROC curves
 - 5-fold cross-validation AUC distribution (box plot)
-
+ 
+![Tab 3 - Model Comparison](assets/tab3_comparison.png)
+ 
 ### 📦 Tab 4 — Batch Predict
 - Upload a CSV file with the 8 feature columns
 - Get predictions for all rows with verdict labels (Low / Medium / High)
 - Download results as CSV
 - Or generate 100 random samples for a quick demo
-
+ 
+![Tab 4 - Batch Predict](assets/tab4_batch.png)
 ---
-
 ## 🔒 Differential Privacy
 
 Enable via the sidebar toggle. Adds **Laplace noise** to the model's output probability:
@@ -166,7 +172,7 @@ Positive rate is approximately **4–7%**, matching real-world CTR distributions
 
 --- -->
 
-## 📈 Sample Results (20k samples, Random Forest)
+<!-- ## 📈 Sample Results (20k samples, Random Forest)
 
 | Metric | Value |
 |---|---|
@@ -178,7 +184,7 @@ Positive rate is approximately **4–7%**, matching real-world CTR distributions
 
 > Note: High accuracy is partly due to class imbalance (~5% positive rate). AUC-ROC and Average Precision are the more meaningful metrics for CTR prediction.
 
----
+--- -->
 <!-- 
 ## 🚀 Extending the Project
 
