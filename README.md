@@ -1,9 +1,9 @@
-# 📈 CTR Prediction Engine — Streamlit App
+#  CTR Prediction Engine — Streamlit App
 
 
 
 
-## 🧠 Project Overview
+##  Project Overview
 
 This project builds an end-to-end **Click-Through Rate (CTR) Prediction** system using three machine learning models trained on synthetic ad campaign data. It simulates real-world ad auction dynamics — including bid amounts, user interest signals, ad quality scores, and historical CTR — to predict the probability that a user will click on an ad.
 
@@ -12,7 +12,7 @@ The app is built with **Streamlit** and runs entirely locally with no external A
 ---
 
 
-## 🗂 Project Structure
+##  Project Structure
 
 ```
 ctr-prediction/
